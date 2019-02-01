@@ -1,0 +1,11 @@
+class profile::osx_domjoin{
+
+   #$userName     = hiera('userName')
+    #$userPassword = hiera('userPassword')
+    
+  exec {'domjoin_osx':
+      provider => shell,
+      command  => 'dsconfigad -force -add unidays.lan -username leon.matthewsadmin -password thisisnotmypassword -computer "UNIGB0424" -packetencrypt require -packetsign require -passinterval 0' ,
+      user     => root,
+      }
+}
