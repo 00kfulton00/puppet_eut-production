@@ -14,41 +14,6 @@ mod 'puppetlabs-inifile', '2.4.0'
 mod 'puppetlabs-scheduled_task', '1.0.0'
 mod 'claranet-varnish', '5.1.0'
 
-mod 'install_london_printers',
-    :git => 'git@github.com:MyUNiDAYS/puppet_eut.git'
-
-mod 'slack',
-    :git => 'git@github.com:MyUNiDAYS/puppet_eut.git'
-
-mod 'install_nottingham_printers',
-    :git => 'git@github.com:MyUNiDAYS/puppet_eut.git'
-
-mod 'install_nyc_printers',
-    :git => 'git@github.com:MyUNiDAYS/puppet_eut.git'
-
-mod 'install_sydney_printers',
-    :git => 'git@github.com:MyUNiDAYS/puppet_eut.git'
-
-mod 'uniblob_check_osx',
-    :git => 'git@github.com:MyUNiDAYS/puppet_eut.git'
-
-mod 'uniblob_check_windows',
-    :git => 'git@github.com:MyUNiDAYS/puppet_eut.git'
-
-mod 'vpn_powershell',
-    :git => 'git@github.com:MyUNiDAYS/puppet_eut.git'
-
-mod 'domjoin',
-    :git => 'git@github.com:MyUNiDAYS/puppet_eut.git'
-
-mod 'sophos_vpn_profile',
-    :git => 'git@github.com:MyUNiDAYS/puppet_eut.git'
-
-mod 'set_runinterval',
-    :git => 'git@github.com:MyUNiDAYS/puppet_eut.git'
-
-mod 'ny_printer_check',
-    :git => 'git@github.com:MyUNiDAYS/puppet_eut.git'
 
 
 
