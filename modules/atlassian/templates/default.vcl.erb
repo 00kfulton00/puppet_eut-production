@@ -1,0 +1,64 @@
+#
+# This is an example VCL file for Varnish.
+#
+# It does not do anything by default, delegating control to the
+# builtin VCL. The builtin VCL is called when there is no explicit
+# return statement.
+#
+# See the VCL chapters in the Users Guide at https://www.varnish-cache.org/docs/
+# and http://varnish-cache.org/trac/wiki/VCLExamples for more examples.
+
+# Marker to tell the VCL compiler that this VCL has been adapted to the
+# new 4.0 format.
+vcl 4.0;
+
+# Default backend definition. Set this to point to your content server.
+backend default {
+    .host = "10.254.109.28";
+    .port = "8090";
+}
+
+sub vcl_recv {
+  if (req.method != "GET") {
+    return(pass);
+  }
+  if (req.http.Referer ~ "editpage.action" || req.url ~ "editpage.action") {
+    set req.hash_always_miss = true;
+  }
+  #if (req.url ~ "analytics" || req.url ~ "batch") {
+  #  return(pass);
+  #}
+  elif (req.url ~ "(display|viewpage.action|naturalchildren.action)") {
+    return(hash);
+  }
+  elif (req.url ~ "(css|js)") {
+    return(hash);
+  } else {
+    return(pass);
+  }
+}
+
+sub vcl_backend_response {
+  if (bereq.url ~ "(display|viewpage.action)") {
+    set beresp.uncacheable = false;
+    set beresp.http.Cache-Control = "";
+    set beresp.ttl = 12h;
+  } elif (bereq.url ~ "naturalchildren.action") {
+    set beresp.uncacheable = false;
+    set beresp.http.Cache-Control = "";
+    set beresp.ttl = 5m;
+  } else {
+    set beresp.ttl = 24h;
+  }
+}
+
+sub vcl_hash {
+}
+
+sub vcl_deliver {
+        if (obj.hits > 0) {
+                set resp.http.X-Cache = "HIT";
+        } else {
+                set resp.http.X-Cache = "MISS";
+        }
+}
