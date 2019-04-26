@@ -1,1 +1,3 @@
-class { 'varnish': }
+class wcache {
+  class { 'varnish': }
+ }
