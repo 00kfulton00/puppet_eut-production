@@ -14,3 +14,6 @@ mod 'puppetlabs-puppet_agent', '1.7.0'
 mod 'puppetlabs-scheduled_task', '1.0.0'
 mod 'claranet-varnish', '5.1.0'
 
+
+mod 'set_runinterval',
+    :git => 'git@github.com:00kfulton00/puppet_eut-production.git'
