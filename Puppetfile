@@ -13,6 +13,10 @@ mod 'puppetlabs-puppet_agent', '1.7.0'
 mod 'puppetlabs-inifile', '2.4.0'
 mod 'puppetlabs-scheduled_task', '1.0.0'
 mod 'claranet-varnish', '5.1.0'
+mod 'stahnma-epel', '1.3.1'
+mod 'puppet-selinux', '1.6.1'
+mod 'puppetlabs-apt', '4.5.1'
+mod 'puppetlabs-stdlib', '5.2.0'
 
 
 mod 'set_runinterval',
