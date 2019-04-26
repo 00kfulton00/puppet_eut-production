@@ -1,4 +1,4 @@
-class wcache {
+class atlassian::wcache {
   class { 'varnish':
 }
   ::varnish::vcl { '/etc/varnish/default.vcl':
